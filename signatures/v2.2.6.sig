@@ -1,0 +1,4 @@
+owlingstone-release 1
+version 2.2.6
+sha256 e094dcff5693c7da413a6bd6ad5549a3b8c27bca609be44f9032fd3a54064ffd
+signature 3cfafd3cb337a0e7c63bad912130bab52d3710c1bc42edf256a9df49a0a88951d151a09df7e79ffc21a67fc79a669ebeea3635430ed632de9a0c8d1ef93c210d
