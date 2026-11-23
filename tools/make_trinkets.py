@@ -17,12 +17,26 @@ SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "tools" / "bgbuddy_trin
 CARDS = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "data" / "cards.json"
 OUT = ROOT / "data" / "trinkets.yaml"
 
+# Costs changed by a server-side hotfix that HearthstoneJSON's cards.json does not show yet (it follows
+# client patches only). Remove a line once cards.json has the same cost.
+# 37.0.3 hotfix, 2026-11-17: https://us.forums.blizzard.com/en/hearthstone/t/3703-hotfix-patch/168317
+COST_FIXES = {  # (name, L or G): cost
+    ("Training Certificate", "L"): 5, ("Bloodbound Earrings", "L"): 3, ("Vibrant Bubble", "L"): 4, ("Ruby Tusk", "L"): 1,
+    ("Jailer Sticker", "L"): 3, ("Demonic Bloodletter", "L"): 1, ("Hoggy Bank", "L"): 0, ("Wand of Divination", "L"): 1,
+    ("Reusable Batteries", "L"): 0, ("Baller Portrait", "L"): 0, ("Cursed Crystal", "L"): 0, ("Fish Portrait", "L"): 0,
+    ("Mindslasher Portrait", "L"): 2,
+    ("Blood Golem Sticker", "G"): 7, ("Snarky Portrait", "G"): 5, ("Soul Fermenter", "G"): 7, ("Trailblazer Sticker", "G"): 6,
+    ("Weighted Gauntlet", "G"): 5, ("Volumizer Portrait", "G"): 0, ("Sinstone Sticker", "G"): 1, ("Aggem Sticker", "G"): 0,
+    ("Sky Golem Portrait", "G"): 0, ("Portable Factory", "G"): 1, ("Nerglish Phrasebook", "G"): 0,
+}
+
 HEADER = """\
 # Trinkets of the current pool: stats + card info. File made by tools/make_trinkets.py (don't edit by
 # hand: edit tools/bgbuddy_trinkets.txt then run the tool again).
 #
 # Stats source: https://bgbuddy.gg/trinkets (Firestone community data, Solo, all ranks, current patch,
 # read on 2026-11-07, season 14, patch 37.0.2: about 4 days of games, so most rows have under 5,000).
+# Costs include the 37.0.3 server hotfix (2026-11-17), which cards.json does not show: see COST_FIXES in the tool.
 # Trinkets bgbuddy shows no 37.0.2 games for keep their 36.6.x row (read on 2026-11-02).
 #   avg   = average place of the players who took it (lower = better)
 #   pick  = % of times it is picked when offered
@@ -48,7 +62,7 @@ def main():
         if c is None:
             print("not found:", name, kind)
             continue
-        entry = {"id": c["id"], "name": name, "kind": "lesser" if kind == "L" else "greater", "cost": c.get("cost", 0),
+        entry = {"id": c["id"], "name": name, "kind": "lesser" if kind == "L" else "greater", "cost": COST_FIXES.get((name, kind), c.get("cost", 0)),
                  "avg": float(avg), "pick": float(pick), "games": int(games)}
         if c.get("battlegroundsAssociatedRaces"):
             entry["races"] = c["battlegroundsAssociatedRaces"]

@@ -4,7 +4,11 @@
 #   lobby_tribes  number of tribes in each lobby (5 in Season 14)
 #   rotated_out   tribes taken out of the pool while HearthstoneJSON still marks their minions as "pool"
 #                 (Naga left in patch 36.6.1 on 2026-09-22; dual-tribe minions with Naga stay)
-#   since         when these facts were last checked (still true in patch 37.0.2)
+#   tier_fixes    card id -> real tier, for tier changes made by a server-side hotfix (the card file the app
+#                 downloads keeps the old tier until the next client patch). Remove them after that patch.
+#                 37.0.3 hotfix (2026-11-17): Snarky Shark tier 4 -> 5.
+#   since         when these facts were last checked (still true after the 37.0.3 hotfix)
 lobby_tribes: 5
 rotated_out: [NAGA]
-since: 2026-11-03
+tier_fixes: {BG36_206: 5}
+since: 2026-11-23

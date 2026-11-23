@@ -122,19 +122,21 @@ impl CardDb {
         let mut by_id = HashMap::with_capacity(raw.len());
         let mut by_dbf = HashMap::with_capacity(raw.len());
         let mut normal_dbf = Vec::new();
+        let season = season::get();
         for c in raw {
             let races = match (c.races, c.race) {
                 (Some(r), _) if !r.is_empty() => r,
                 (_, Some(r)) => vec![r],
                 _ => vec![],
             };
+            let tier = season.fixed_tier(&c.id, c.tech_level);
             let mut keywords = c.mechanics;
             keywords.extend(c.referenced);
             let card = Arc::new(Card {
                 name: c.name.unwrap_or_else(|| c.id.clone()),
                 id: c.id,
                 dbf_id: c.dbf_id,
-                tier: c.tech_level,
+                tier,
                 races,
                 is_pool_minion: c.pool_minion,
                 is_hero: c.hero,
