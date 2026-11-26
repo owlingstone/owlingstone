@@ -4,6 +4,7 @@ The app shows the lines of its version after an update. Newest version first.
 
 ## 2.2.7
 - Follows the 37.0.3 hotfix (November 17). Snarky Shark is now shown in tier 5 (was 4) in the tier list and the roll odds. Trinket prices are the new ones (for example Training Certificate 5, Weighted Gauntlet 5, Cursed Crystal and Sky Golem Portrait free), so the "pivot" hint compares with the right price. Emergency Gearblade, removed from the pool, is no longer advised.
+- Felboar (now 4 spells) and Sanguine Champion (now +1/+1, golden +2/+2) show their new text in the app's tooltips. Card pictures saved before the hotfix are downloaded again once, so the big card preview shows the new tier and text too.
 - Hearthstone's card file doesn't show server hotfixes, so these changes are kept in the app's data until the next game patch.
 
 ## 2.2.6

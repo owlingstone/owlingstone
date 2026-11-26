@@ -130,6 +130,7 @@ impl CardDb {
                 _ => vec![],
             };
             let tier = season.fixed_tier(&c.id, c.tech_level);
+            let text = season.fixed_text(&c.id, c.text);
             let mut keywords = c.mechanics;
             keywords.extend(c.referenced);
             let card = Arc::new(Card {
@@ -140,7 +141,7 @@ impl CardDb {
                 races,
                 is_pool_minion: c.pool_minion,
                 is_hero: c.hero,
-                text: c.text,
+                text,
                 attack: c.attack,
                 health: c.health,
                 cost: c.cost,
