@@ -171,7 +171,6 @@ Kaleidoscope|G|3.96|12.8|15400
 Thaumaturgist Portrait|G|3.96|18.7|5200
 Honeycomb Ring|G|3.96|5.7|708
 Quartermaster's Hook|L|3.97|34.4|1080
-Emergency Gearblade|L|3.97|11.6|379
 Guiding Candle|G|3.97|30.4|4110
 Mystery Cube|L|3.97|28.9|2590
 Portable Factory|L|3.97|17.0|1540

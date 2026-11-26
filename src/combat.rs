@@ -1212,10 +1212,8 @@ pub fn is_unknown_effect(card: Option<&Card>) -> bool {
         return false; // already played when the picture was taken
     }
     let before_get = text.split("Get").next().unwrap_or("");
-    if SHOP_ONLY.iter().any(|w| text.contains(w)) && !["Summon", "Give"].iter().any(|w| before_get.contains(w)) {
-        return false;
-    }
-    true
+    // Shop-only text matters in combat only when it also summons or gives something.
+    !SHOP_ONLY.iter().any(|w| text.contains(w)) || ["Summon", "Give"].iter().any(|w| before_get.contains(w))
 }
 
 // ------------------------------------------------------------------------------------- simulation

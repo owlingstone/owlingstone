@@ -3,6 +3,7 @@
 #
 # Stats source: https://bgbuddy.gg/trinkets (Firestone community data, Solo, all ranks, current patch,
 # read on 2026-11-07, season 14, patch 37.0.2: about 4 days of games, so most rows have under 5,000).
+# Costs include the 37.0.3 server hotfix (2026-11-17), which cards.json does not show: see COST_FIXES in the tool.
 # Trinkets bgbuddy shows no 37.0.2 games for keep their 36.6.x row (read on 2026-11-02).
 #   avg   = average place of the players who took it (lower = better)
 #   pick  = % of times it is picked when offered
@@ -66,7 +67,7 @@
 - id: BG36_MagicItem_450
   name: Snarky Portrait
   kind: greater
-  cost: 4
+  cost: 5
   avg: 3.2
   pick: 42.5
   games: 1490
@@ -86,7 +87,7 @@
 - id: BG36_MagicItem_414
   name: Weighted Gauntlet
   kind: greater
-  cost: 3
+  cost: 5
   avg: 3.34
   pick: 23.2
   games: 2870
@@ -121,7 +122,7 @@
 - id: BG30_MagicItem_442
   name: Blood Golem Sticker
   kind: greater
-  cost: 6
+  cost: 7
   avg: 3.45
   pick: 37.3
   games: 1910
@@ -130,7 +131,7 @@
 - id: BG35_MagicItem_732
   name: Soul Fermenter
   kind: greater
-  cost: 6
+  cost: 7
   avg: 3.46
   pick: 46.4
   games: 863
@@ -205,7 +206,7 @@
 - id: BG30_MagicItem_962
   name: Training Certificate
   kind: lesser
-  cost: 4
+  cost: 5
   avg: 3.52
   pick: 23.9
   games: 762
@@ -358,7 +359,7 @@
 - id: BG32_MagicItem_808
   name: Bloodbound Earrings
   kind: lesser
-  cost: 2
+  cost: 3
   avg: 3.62
   pick: 40.8
   games: 1840
@@ -440,7 +441,7 @@
 - id: BG35_MagicItem_740
   name: Sky Golem Portrait
   kind: greater
-  cost: 3
+  cost: 0
   avg: 3.66
   pick: 8.3
   games: 701
@@ -495,7 +496,7 @@
 - id: BG36_MagicItem_423t
   name: Volumizer Portrait
   kind: greater
-  cost: 1
+  cost: 0
   avg: 3.68
   pick: 43.9
   games: 1300
@@ -520,7 +521,7 @@
 - id: BG32_MagicItem_284
   name: Aggem Sticker
   kind: greater
-  cost: 2
+  cost: 0
   avg: 3.7
   pick: 16.0
   games: 170
@@ -592,7 +593,7 @@
 - id: BG35_MagicItem_306
   name: Jailer Sticker
   kind: lesser
-  cost: 2
+  cost: 3
   avg: 3.72
   pick: 39.1
   games: 747
@@ -753,7 +754,7 @@
 - id: BG36_MagicItem_308
   name: Trailblazer Sticker
   kind: greater
-  cost: 5
+  cost: 6
   avg: 3.76
   pick: 53.4
   games: 2640
@@ -829,7 +830,7 @@
 - id: BG30_MagicItem_801
   name: Sinstone Sticker
   kind: greater
-  cost: 3
+  cost: 1
   avg: 3.79
   pick: 18.3
   games: 568
@@ -907,7 +908,7 @@
 - id: BG36_MagicItem_402
   name: Mindslasher Portrait
   kind: lesser
-  cost: 4
+  cost: 2
   avg: 3.81
   pick: 23.9
   games: 975
@@ -1168,7 +1169,7 @@
 - id: BG36_MagicItem_409
   name: Ruby Tusk
   kind: lesser
-  cost: 0
+  cost: 1
   avg: 3.86
   pick: 61.9
   games: 2730
@@ -1222,7 +1223,7 @@
 - id: BG30_MagicItem_411
   name: Hoggy Bank
   kind: lesser
-  cost: 1
+  cost: 0
   avg: 3.88
   pick: 30.0
   games: 1370
@@ -1291,7 +1292,7 @@
 - id: BG32_MagicItem_278
   name: Reusable Batteries
   kind: lesser
-  cost: 1
+  cost: 0
   avg: 3.89
   pick: 28.4
   games: 900
@@ -1341,7 +1342,7 @@
 - id: BG32_MagicItem_892
   name: Vibrant Bubble
   kind: lesser
-  cost: 3
+  cost: 4
   avg: 3.91
   pick: 30.7
   games: 605
@@ -1525,15 +1526,6 @@
   games: 1080
   races:
   - PIRATE
-- id: BG36_MagicItem_812
-  name: Emergency Gearblade
-  kind: lesser
-  cost: 0
-  avg: 3.97
-  pick: 11.6
-  games: 379
-  races:
-  - MECHANICAL
 - id: BG32_MagicItem_366
   name: Guiding Candle
   kind: greater
@@ -1590,7 +1582,7 @@
 - id: BG36_MagicItem_390
   name: Baller Portrait
   kind: lesser
-  cost: 1
+  cost: 0
   avg: 3.98
   pick: 13.1
   games: 1120
@@ -1657,7 +1649,7 @@
 - id: BG36_MagicItem_800
   name: Demonic Bloodletter
   kind: lesser
-  cost: 3
+  cost: 1
   avg: 3.99
   pick: 30.6
   games: 893
@@ -1794,7 +1786,7 @@
 - id: BG30_MagicItem_821
   name: Fish Portrait
   kind: lesser
-  cost: 1
+  cost: 0
   avg: 4.04
   pick: 16.6
   games: 886
@@ -1926,7 +1918,7 @@
 - id: BG32_MagicItem_361t
   name: Portable Factory
   kind: greater
-  cost: 2
+  cost: 1
   avg: 4.08
   pick: 21.1
   games: 2900
@@ -1997,7 +1989,7 @@
 - id: BG30_MagicItem_914t
   name: Nerglish Phrasebook
   kind: greater
-  cost: 2
+  cost: 0
   avg: 4.09
   pick: 25.0
   games: 418
@@ -2116,7 +2108,7 @@
 - id: BG35_MagicItem_150
   name: Cursed Crystal
   kind: lesser
-  cost: 2
+  cost: 0
   avg: 4.17
   pick: 16.0
   games: 468
@@ -2217,7 +2209,7 @@
 - id: BG36_MagicItem_307
   name: Wand of Divination
   kind: lesser
-  cost: 2
+  cost: 1
   avg: 4.67
   pick: 9.2
   games: 413

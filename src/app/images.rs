@@ -69,11 +69,18 @@ fn decode(bytes: &[u8]) -> Option<ColorImage> {
 
 fn fetch(kind: Kind, id: &str) -> Option<ColorImage> {
     let path = kind.folder().join(format!("{id}.png"));
-    if let Some(img) = std::fs::read(&path).ok().and_then(|b| decode(&b)) {
-        return Some(img);
+    let saved = std::fs::read(&path).ok().and_then(|b| decode(&b));
+    // A card picture saved before the last hotfix or patch is downloaded again (once): the renders show
+    // the tier and text. The saved one is kept if the download fails.
+    let outdated = kind == Kind::Card
+        && std::fs::metadata(&path)
+            .and_then(|m| m.modified())
+            .is_ok_and(|t| owlingstone::season::get().art_outdated(t));
+    if saved.is_some() && !outdated {
+        return saved;
     }
     if std::env::var_os(owlingstone::cards::NO_DOWNLOAD).is_some() {
-        return None;
+        return saved;
     }
     for url in kind.urls() {
         let Ok(bytes) = owlingstone::net::get(&url.replace("{}", id), MAX_BYTES, 20) else { continue };
@@ -83,7 +90,7 @@ fn fetch(kind: Kind, id: &str) -> Option<ColorImage> {
             return Some(img);
         }
     }
-    None
+    saved
 }
 
 impl Images {

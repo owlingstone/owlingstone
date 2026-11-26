@@ -4,7 +4,21 @@
 #   lobby_tribes  number of tribes in each lobby (5 in Season 14)
 #   rotated_out   tribes taken out of the pool while HearthstoneJSON still marks their minions as "pool"
 #                 (Naga left in patch 36.6.1 on 2026-09-22; dual-tribe minions with Naga stay)
-#   since         when these facts were last checked (still true in patch 37.0.2)
+#   tier_fixes    card id -> real tier, for tier changes made by a server-side hotfix (the card file the app
+#                 downloads keeps the old tier until the next client patch). Remove them after that patch.
+#                 37.0.3 hotfix (2026-11-17): Snarky Shark tier 4 -> 5.
+#   text_fixes    exact card id (golden "_G" listed apart) -> real text, same reason. 37.0.3: Felboar 3 -> 4
+#                 spells, Sanguine Champion +2/+1 -> +1/+1.
+#   art_since     card pictures saved before this day are downloaded again once (HearthstoneJSON redrew the
+#                 renders for 37.0.3 on 2026-11-18).
+#   since         when these facts were last checked (still true after the 37.0.3 hotfix)
 lobby_tribes: 5
 rotated_out: [NAGA]
-since: 2026-11-03
+tier_fixes: {BG36_206: 5}
+text_fixes:
+  BG28_633: "[x]After you cast 4 spells,\nconsume a minion in the\nTavern to gain its stats.\n<i>(4 left!)</i>"
+  BG28_633_G: "[x]After you cast 4 spells,\nconsume a minion in the\nTavern to gain double\nits stats. <i>(4 left!)</i>"
+  BG23_017: "[x]<b>Battlecry and Deathrattle:</b>\nYour <b>Blood Gems</b> give an\nextra +1/+1 this game."
+  BG23_017_G: "[x]<b>Battlecry and Deathrattle:</b>\nYour <b>Blood Gems</b> give an\nextra +2/+2 this game."
+art_since: 2026-11-18
+since: 2026-11-23
